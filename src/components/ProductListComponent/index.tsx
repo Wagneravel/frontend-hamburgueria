@@ -1,14 +1,24 @@
-export function ListProduct(addProductCar, Busca:[]){
-   
+import { useContext } from "react"
+import { DashBoardContext } from "../../contexts/DashBoardContext"
 
-    
+export function ListProduct(){
+    const {busca, addProductCar} = useContext(DashBoardContext)
+
+
+    interface iCardList {
+        name: string,
+        category: string,
+        price: number,
+        id: number
+        img: string
+    }
 
     return(
         <div >
             <div >
                 <ul >
 
-               { Busca.map((element, index) => (
+               { busca.map((element:iCardList, index) => (
                     <li  key={index}>
                         <section >
                         <img  alt='oi' src={element.img} />

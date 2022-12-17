@@ -1,11 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { DashBoardContext } from '../../contexts/DashBoardContext';
 
 
 
-export function CarTotalBtn(ProductCar:[]){
+export function ListCart(){
 
 
-    
+    const { productCart, setProductCart, RemoveCard } = useContext(DashBoardContext)
     
 
         
@@ -17,8 +18,8 @@ export function CarTotalBtn(ProductCar:[]){
 
                 <ul className='ul-carrinho'>
 
-                   {(ProductCar.length > 0)?
-                    ProductCar.map((element)=>(
+                   {(productCart.length > 0)?
+                    productCart.map((element)=>(
                     
                     <li key={element.id} className='li-carrinho'>
                         <div className='div-img-carrinho'>
@@ -29,7 +30,7 @@ export function CarTotalBtn(ProductCar:[]){
                             <h5>{element.category}</h5>
                             
                         </section>
-                        <button onClick={ () => RemoveCar(element.id)} type='button'>remover</button>
+                        <button onClick={ () => RemoveCard(element.id)} type='button'>remover</button>
                     </li>
                 )):
                      (<h1>Carrinho está vazio!</h1>)

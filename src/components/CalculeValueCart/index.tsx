@@ -1,6 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { DashBoardContext } from '../../contexts/DashBoardContext';
 
-export function CarTotalBtn(){
+export function CarTotalBtnClearCart(){
+
+    
+    const {clearCart, total} = useContext(DashBoardContext)
    
     return (
         <section className='div-total-valor'>

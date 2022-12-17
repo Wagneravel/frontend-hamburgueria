@@ -39,7 +39,7 @@ interface iUserContextTypes{
 
    
     setUser: React.Dispatch<React.SetStateAction<iUser>>;
-    User: iUser;
+    user: iUser;
 
     onSubmitFunctionLogin: (data:iDataLogin)=> void;
     onSubmitFunctionRegister: (data:iDataRegister)=> void;
@@ -52,8 +52,8 @@ export const UserContext = createContext({} as iUserContextTypes );
 
 export const UserProvider = ({children}: iUserProviderProps) => {
 
-    const [User, setUser] = useState({} as iUser)
-    console.log(User)
+    const [user, setUser] = useState({} as iUser)
+    console.log(user)
 
     const navigate = useNavigate(); 
 
@@ -102,7 +102,7 @@ export const UserProvider = ({children}: iUserProviderProps) => {
 
     return(
 
-        <UserContext.Provider value={{onSubmitFunctionLogin, onSubmitFunctionRegister, setUser, User }}>
+        <UserContext.Provider value={{onSubmitFunctionLogin, onSubmitFunctionRegister, setUser, user }}>
             {children}
         </UserContext.Provider>
 

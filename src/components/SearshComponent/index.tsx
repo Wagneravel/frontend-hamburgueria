@@ -1,9 +1,12 @@
+import { useContext } from "react"
+import { DashBoardContext } from "../../contexts/DashBoardContext"
+
 export function SearchHome(){
     
 
+    
 
-
-
+    const {filtrando} = useContext(DashBoardContext)
 
     return(
                 

@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react';
+import { useContext } from 'react';
 import { DashBoardContext } from '../../contexts/DashBoardContext';
 
 
@@ -6,7 +6,7 @@ import { DashBoardContext } from '../../contexts/DashBoardContext';
 export function ListCart(){
 
 
-    const { productCart, setProductCart, RemoveCard } = useContext(DashBoardContext)
+    const { productCart, RemoveCard } = useContext(DashBoardContext)
     
 
         

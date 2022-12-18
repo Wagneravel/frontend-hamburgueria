@@ -10,13 +10,7 @@ import { number } from 'yup';
 
 
 
-// {
-//     "id": 1,
-//     "name": "Hamburguer",
-//     "category": "Sanduíches",
-//     "price": 14,
-//     "img": "https://i.imgur.com/Vng6VzV.png"
-// }
+
 
 interface iItemCart {
     id: number,
@@ -44,6 +38,9 @@ interface iDashBoardContextTypes {
     busca: iItemCart[]
     setBusca:{}
     filtrando: ( valor: string) => void
+    NovaLista: iItemCart[]
+    setNovaLista:{}
+
    
 
 }
@@ -63,33 +60,75 @@ export const DashBoardProvider = ({children}: iDashBoardProviderProps) => {
     const [InputSeach, setInputSeach]= useState("")
     const [listaApi, setlistaApi]= useState([]) 
     const [NovaLista, setNovaLista] = useState(listaApi)
+
     const [busca, setBusca]= useState(NovaLista)
 
    
 
-    useEffect(()=>{
-        api.get("/").then((response)=>{
-         const novosProdutos = response.data
-         setlistaApi(novosProdutos)
-         setNovaLista(novosProdutos)
-         setBusca(novosProdutos)
-   
+    useEffect(() => {
+          
+        if(!tokenLS){
+        
+            navigate("/");
+        }  
+    api
+    
+        .get("/products", {
+            
+            headers: {
+            'Authorization': `Bearer ${tokenLS}`
+          }})
+
+        .then((response) => {
+
+            const novosProdutos = response.data
+            console.log(novosProdutos)
+
+            setlistaApi(novosProdutos)
+            setNovaLista(novosProdutos)
+            setBusca(novosProdutos)
+            navigate("/dashboard", {replace:true});
+            
+            
         })
-    },[])
+        .catch((err) => {
+           
+            navigate("/");
+        })
+        
+    }, []);
 
 
     function addProductCar(id:number){
     
 
-        const item = NovaLista.find((product)=>product.id === id)
+        const item = NovaLista.find((product: iItemCart)=>product.id === id)
         
     
-        if(productCart.some((elemento) => elemento.id === id)){
+        if(productCart.some((elemento: iItemCart) => elemento.id === id)){
           return toast.success("Já adicionou esse item ao carrinho")
         }
     
-        setProductCart([...productCart, item])
+        // setProductCart([...productCart, item])
     }
+
+    function RemoveCard(id:number){
+        
+        
+        const arrayFiltered = productCart.filter(
+            (product:iItemCart)=>product.id!== id
+        )
+        setProductCart(arrayFiltered)
+    }
+
+
+
+
+
+
+
+
+
 
 
 
@@ -103,25 +142,6 @@ export const DashBoardProvider = ({children}: iDashBoardProviderProps) => {
           
         setBusca(produtoFiltrado)
     }
-
-
-
-
-
-    function RemoveCard(id:number){
-        
-        
-        const arrayFiltered = productCart.filter(
-            (product)=>product.id!== id
-        )
-        setProductCart(arrayFiltered)
-    }
-
-
-
-
-
-
 
 
     const total = productCart.reduce((acc:number, item: iItemCart) => {
@@ -147,7 +167,7 @@ export const DashBoardProvider = ({children}: iDashBoardProviderProps) => {
     return(
 
 
-        <DashBoardContext.Provider value={{logOut, clearCart, total, productCart, setProductCart, RemoveCard, busca, setBusca, addProductCar, filtrando}}>
+        <DashBoardContext.Provider value={{logOut, clearCart, total, productCart, setProductCart, RemoveCard, busca, setBusca, addProductCar, filtrando, NovaLista, setNovaLista}}>
             {children}
         </DashBoardContext.Provider>
 

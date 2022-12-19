@@ -31,8 +31,8 @@ interface iDashBoardContextTypes {
     logOut: () => void
     clearCart: () => void
     total:number
-    productCart: iItemCart[]
-    setProductCart: {}
+    productCart: iItemCart[] 
+    setProductCart: React.Dispatch<React.SetStateAction<iItemCart[]>>
     RemoveCard: (id:number) => void
     addProductCar: (id:number) => void
     busca: iItemCart[]
@@ -40,6 +40,9 @@ interface iDashBoardContextTypes {
     filtrando: ( valor: string) => void
     NovaLista: iItemCart[]
     setNovaLista:{}
+    currentModal:boolean
+    setCurrentModal: React.Dispatch<React.SetStateAction<boolean>>
+    
 
    
 
@@ -55,7 +58,8 @@ export const DashBoardProvider = ({children}: iDashBoardProviderProps) => {
 
     const {user, setUser} = useContext(UserContext)
     const [userLogged, setUserLogged]= useState({});
-    const [productCart, setProductCart] = useState([])
+
+    const [productCart, setProductCart]  = useState([] as iItemCart[])
 
     const [InputSeach, setInputSeach]= useState("")
     const [listaApi, setlistaApi]= useState([]) 
@@ -63,7 +67,9 @@ export const DashBoardProvider = ({children}: iDashBoardProviderProps) => {
 
     const [busca, setBusca]= useState(NovaLista)
 
-   
+    const [currentModal, setCurrentModal]=useState(false)
+
+    
 
     useEffect(() => {
           
@@ -89,7 +95,6 @@ export const DashBoardProvider = ({children}: iDashBoardProviderProps) => {
             setBusca(novosProdutos)
             navigate("/dashboard", {replace:true});
             
-            
         })
         .catch((err) => {
            
@@ -102,15 +107,25 @@ export const DashBoardProvider = ({children}: iDashBoardProviderProps) => {
     function addProductCar(id:number){
     
 
-        const item = NovaLista.find((product: iItemCart)=>product.id === id)
-        
-    
-        if(productCart.some((elemento: iItemCart) => elemento.id === id)){
-          return toast.success("Já adicionou esse item ao carrinho")
+        const item = NovaLista.find((product: iItemCart)=>product.id === id) 
+        if(!item){
+            return
         }
     
-        // setProductCart([...productCart, item])
+        if(productCart?.some((elemento: iItemCart) => elemento.id === id)){
+          return toast.success("Contador do carrinho somando mais 1")
+        }
+    
+        console.log(id)
+        const newProductCart = [...productCart, item]
+        setProductCart(newProductCart)
     }
+
+
+
+
+
+    
 
     function RemoveCard(id:number){
         
@@ -152,6 +167,7 @@ export const DashBoardProvider = ({children}: iDashBoardProviderProps) => {
 
     function clearCart(){
         setProductCart([])
+        setCurrentModal(false)
         
     }
 
@@ -167,7 +183,7 @@ export const DashBoardProvider = ({children}: iDashBoardProviderProps) => {
     return(
 
 
-        <DashBoardContext.Provider value={{logOut, clearCart, total, productCart, setProductCart, RemoveCard, busca, setBusca, addProductCar, filtrando, NovaLista, setNovaLista}}>
+        <DashBoardContext.Provider value={{logOut, clearCart, total, productCart, setProductCart, RemoveCard, busca, setBusca, addProductCar, filtrando, NovaLista, setNovaLista, currentModal, setCurrentModal}}>
             {children}
         </DashBoardContext.Provider>
 

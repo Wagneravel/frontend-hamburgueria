@@ -1,5 +1,6 @@
 import { useContext } from "react"
 import { DashBoardContext } from "../../contexts/DashBoardContext"
+import { StyledDivList, StyledList } from "./style"
 
 export function ListProduct(){
     const {busca, addProductCar} = useContext(DashBoardContext)
@@ -14,14 +15,14 @@ export function ListProduct(){
     }
 
     return(
-        <div >
-            <div >
-                <ul >
+        <StyledDivList >
+            <div>
+                <StyledList >
 
                { busca.map((element:iCardList, index) => (
                     <li  key={index}>
                         <section >
-                        <img  alt='oi' src={element.img} />
+                        <img  alt='imagem' src={element.img} />
                         </section>
                         <div >
                             <h3>{element.name}</h3>
@@ -32,9 +33,9 @@ export function ListProduct(){
                     </li>
                 ))
                 }
-                </ul>
+                </StyledList>
             </div>
-        </div>
+        </StyledDivList>
     )
 
 }

@@ -1,22 +1,28 @@
+import { useContext } from "react"
 import { CarTotalBtnClearCart } from "../../components/CalculeValueCart"
 import { ListCart } from "../../components/CartSalesComponent"
 import { HeaderHome } from "../../components/HeaderDashBoardComponent"
 import { ListProduct } from "../../components/ProductListComponent"
 import { SearchHome } from "../../components/SearshComponent"
+import { DashBoardContext } from "../../contexts/DashBoardContext"
 
 
 
 
 export const DashBoard = () => {
 
+    const { currentModal } = useContext(DashBoardContext)
+
     return (
         <>
-            <h1>Olá, estou no dashboard</h1>
             <HeaderHome />
-            <SearchHome />
-            <CarTotalBtnClearCart />
             <ListProduct />
-            <ListCart />
+            {
+                currentModal && (
+                    <ListCart />
+                )
+            }
+           
         </>
     )
 }

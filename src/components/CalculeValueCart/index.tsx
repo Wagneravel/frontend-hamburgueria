@@ -14,7 +14,7 @@ export function CarTotalBtnClearCart(){
                         
             </div>
 
-            <button onClick={clearCart} type='button'>Limpar Carrinho</button>
+            <button onClick={clearCart}   type='button'>Limpar e fechar Carrinho</button>
         </section>
 
     )

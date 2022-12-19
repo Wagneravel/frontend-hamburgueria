@@ -1,17 +1,27 @@
 import { useContext } from 'react';
 import { DashBoardContext } from '../../contexts/DashBoardContext';
 import Logo from '../../MaskGroup.png';
+import { SearchHome } from '../SearshComponent';
+import { StyledHeader, StyledHeaderDiv } from './style';
 
 export function HeaderHome(){
-    const {logOut} = useContext(DashBoardContext)
+    const {logOut, setCurrentModal} = useContext(DashBoardContext)
+
+    
+
     return(
-        <div>
-            <header>
+        <StyledHeaderDiv>
+            <StyledHeader>
 
                 <img alt='Logo' src={Logo} />
-                <button onClick={logOut}>Sair</button>
+                <div>
+                    <SearchHome />
+                    <button onClick={()=> setCurrentModal(true)}>openCart</button>
+                    <button onClick={logOut}>Sair</button>
+                </div>
+               
                 
-            </header>
-        </div>
+            </StyledHeader>
+        </StyledHeaderDiv>
     )
 }

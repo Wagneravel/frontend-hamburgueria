@@ -17,7 +17,8 @@ interface iItemCart {
     name: string,
     category: string,
     price: number,
-    img: string
+    img: string,
+    qtd?: number
 
 }
 
@@ -42,6 +43,8 @@ interface iDashBoardContextTypes {
     setNovaLista:{}
     currentModal:boolean
     setCurrentModal: React.Dispatch<React.SetStateAction<boolean>>
+    contadorr: number
+    setContadorr: React.Dispatch<React.SetStateAction<number>>
     
 
    
@@ -69,6 +72,7 @@ export const DashBoardProvider = ({children}: iDashBoardProviderProps) => {
 
     const [currentModal, setCurrentModal]=useState(false)
 
+    const [contadorr, setContadorr]=useState(1)
     
 
     useEffect(() => {
@@ -109,11 +113,13 @@ export const DashBoardProvider = ({children}: iDashBoardProviderProps) => {
 
         const item = NovaLista.find((product: iItemCart)=>product.id === id) 
         if(!item){
-            return
+            return 
         }
     
         if(productCart?.some((elemento: iItemCart) => elemento.id === id)){
-          return toast.success("Contador do carrinho somando mais 1")
+           toast.success("Contador do carrinho somando mais 1")
+
+           
         }
     
         console.log(id)
@@ -183,7 +189,7 @@ export const DashBoardProvider = ({children}: iDashBoardProviderProps) => {
     return(
 
 
-        <DashBoardContext.Provider value={{logOut, clearCart, total, productCart, setProductCart, RemoveCard, busca, setBusca, addProductCar, filtrando, NovaLista, setNovaLista, currentModal, setCurrentModal}}>
+        <DashBoardContext.Provider value={{logOut, clearCart, total, productCart, setProductCart, RemoveCard, busca, setBusca, addProductCar, filtrando, NovaLista, setNovaLista, currentModal, setCurrentModal, contadorr, setContadorr}}>
             {children}
         </DashBoardContext.Provider>
 

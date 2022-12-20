@@ -31,3 +31,85 @@ export const StyleModalBox = styled.div`
 
 
 `
+export const StyleListCart = styled.ul`
+
+    
+    height: 100%;
+    list-style: none;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-bottom: 2px solid grey;
+    
+
+    li{
+        width: 100%;
+        height: 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: green;
+        box-sizing: border-box;
+        
+
+        img{
+            width: 100px;
+            height: 100px;
+        }
+
+        button {
+            margin-right: 10px;
+        }
+
+        section{
+
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 180px;
+
+
+            h4, h5{
+                margin: 0;
+            }
+        }
+    }
+
+`
+
+
+export const StyleContador = styled.div`
+
+    display: flex;
+    gap: 10px;
+    margin: 0;
+    justify-content: start;
+    align-items: center;
+
+
+    p{
+        margin: 0;
+        margin-right: 10px;
+    }
+
+    button{
+        width: 25px;
+        height: 25px;
+        border-radius: 6px;
+        
+    }
+
+
+    
+
+
+`
+
+export const Stylehead = styled.header`
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+`

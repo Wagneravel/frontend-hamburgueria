@@ -5,6 +5,8 @@ import { useContext, useState } from 'react';
 import Logo from '../../MaskGroup.png';
 import { iDataLogin, UserContext } from '../../contexts/UserContext';
 import { formSchema } from '../../services/valid/loginSchema';
+import Cart from '../../shopping-bag.png';
+import { StyleComponentPageLogin } from './style';
 
 const Logando = () => {
     const {onSubmitFunctionLogin} = useContext(UserContext)
@@ -16,11 +18,24 @@ const Logando = () => {
 
     return(
 
-        <div>
-            <img alt='Logo' src={Logo} />
-            <h3>Login</h3>
-            <form className='form' onSubmit={handleSubmit(onSubmitFunctionLogin)} >
+        <StyleComponentPageLogin>
+            
 
+            <section>
+                <img alt='Logo' src={Logo} />
+                <div>
+                    <div><img alt='img carrinho' src={Cart} /></div>
+                    <h5>A vida é como um sanduíche, é preciso recheá-la com os melhores ingredientes.</h5>
+                </div>
+                               
+
+            </section>
+            
+            <form className='form' onSubmit={handleSubmit(onSubmitFunctionLogin)} >
+                <div>
+                  <h3>Login</h3>
+                </div>
+                
                 
                 <input  type='email' placeholder='Insira seu email' {...register('email')} />
                 {<p>{errors.email?.message}</p>}
@@ -29,10 +44,12 @@ const Logando = () => {
                 {<p>{errors.password?.message}</p>}
 
                 <button type='submit'>Entrar</button>
+
+                <h5>Ainda não possui cadastro?</h5>
+                <Link  to='/register' >Cadastre-se</Link>
             </form>
-            <h5>Ainda não possui cadastro?</h5>
-            <Link  to='/register' >Cadastre-se</Link>
-        </div>
+            
+        </StyleComponentPageLogin>
     )
 
 };

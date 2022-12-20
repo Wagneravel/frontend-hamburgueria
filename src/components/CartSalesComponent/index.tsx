@@ -1,26 +1,37 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { DashBoardContext } from '../../contexts/DashBoardContext';
 import { CarTotalBtnClearCart } from '../CalculeValueCart';
-import { StyleComponentModal, StyleModalBox } from './style';
+import { StyleComponentModal, StyleContador, Stylehead, StyleListCart, StyleModalBox } from './style';
 
 
 
 export function ListCart(){
 
 
-    const { productCart, RemoveCard, setCurrentModal } = useContext(DashBoardContext)
+    const { productCart, RemoveCard, setCurrentModal, contadorr,  setContadorr} = useContext(DashBoardContext)
+    // const [contadorr, setContadorr]=useState(1)
+
+
     
 
-        
+    
+
 
     return(
         <StyleComponentModal>
             <StyleModalBox>
-                <button onClick={()=> setCurrentModal(false)}>fechar</button>
-                <main className='componentContainerCTB'>
-                    <h3>Carrinho de Compras</h3>
+                
+                <main >
+                
+                    <Stylehead>
+                        
+                        <h3>Carrinho de Compras</h3>
+                        <button onClick={()=> setCurrentModal(false)}>fechar</button>
 
-                    <ul className='ul-carrinho'>
+                    </Stylehead>
+                    
+
+                    <StyleListCart>
 
                     {(productCart.length > 0)?
                         productCart.map((element)=>(
@@ -32,14 +43,18 @@ export function ListCart(){
                             <section className='div-info-carrinho'>
                                 <h4>{element.name}</h4>
                                 <h5>{element.category}</h5>
-                                
+                                <StyleContador>
+                                    <button onClick={()=>console.log("+1")}  type='button'>+</button>
+                                    <p>{element.qtd}</p>
+                                    <button onClick={()=>console.log("-1")} type='button'>-</button>
+                                </StyleContador>
                             </section>
                             <button onClick={ () => RemoveCard(element.id)} type='button'>remover</button>
                         </li>
                     )):
                         (<h1>Carrinho está vazio!</h1>)
                     }
-                    </ul>
+                    </StyleListCart>
                     
 
                 </main>

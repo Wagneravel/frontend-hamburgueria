@@ -1,9 +1,7 @@
-import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Link, useNavigate } from 'react-router-dom';
-import { useContext, useState } from 'react';
-import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
+import { useContext } from 'react';
 import Logo from '../../MaskGroup.png';
 import { formSchema } from '../../services/valid/registerSchema';
 import { iDataRegister, UserContext } from '../../contexts/UserContext';
@@ -15,8 +13,6 @@ const Registrando= ()=> {
 
     const {onSubmitFunctionRegister} = useContext(UserContext)
     
-
-
     const { register, handleSubmit, formState: { errors } } = useForm <iDataRegister >({
         resolver: yupResolver(formSchema),
     });

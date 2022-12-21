@@ -1,12 +1,9 @@
 import { useContext } from "react"
-import { DashBoardContext } from "../../contexts/DashBoardContext"
+import { DashBoardContext } from "../../contexts/CartContext"
 import { StyleComponentSearsh } from "./style"
 
 export function SearchHome(){
     
-
-    
-
     const {filtrando} = useContext(DashBoardContext)
 
     return(

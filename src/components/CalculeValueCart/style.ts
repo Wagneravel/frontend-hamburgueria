@@ -3,10 +3,14 @@ import styled from "styled-components";
 export const StyleComponentModal = styled.section`
 
 
-    padding: 20px;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: 1px solid white;
+    border-radius: 8px;
+    margin: 10px;
+    padding-bottom: 20px;
 
     div{
         display: flex;

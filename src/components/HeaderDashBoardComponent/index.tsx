@@ -1,5 +1,6 @@
 import { useContext } from 'react';
-import { DashBoardContext } from '../../contexts/DashBoardContext';
+import { Link } from 'react-router-dom';
+import { DashBoardContext } from '../../contexts/CartContext';
 import Logo from '../../MaskGroup.png';
 import { SearchHome } from '../SearshComponent';
 import { StyledHeader, StyledHeaderDiv } from './style';
@@ -19,7 +20,7 @@ export function HeaderHome(){
                 <div>
                     <SearchHome />
                     <button onClick={()=> setCurrentModal(true)}>Cart</button>
-                    <button onClick={logOut}>Sair</button>
+                    <Link onClick={logOut} to='/' >Sair</Link>
                 </div>
                
                 

@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { DashBoardContext } from "../../contexts/DashBoardContext"
+import { DashBoardContext } from "../../contexts/CartContext"
 import { StyledDivList, StyledList } from "./style"
 
 export function ListProduct(){

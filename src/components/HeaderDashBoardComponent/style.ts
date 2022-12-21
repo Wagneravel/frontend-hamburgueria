@@ -43,6 +43,26 @@ export const StyledHeader = styled.div<iStyleHeaderProps>`
                 color: white;
             }
         }
+
+        a{
+            text-decoration: none;
+            padding: 8px 20px;
+            background-color: bisque;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black;
+
+            :hover{
+                
+                background-color: gray;
+                color: white;
+            }
+
+        }
+
+
     }
 
 

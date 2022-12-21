@@ -26,7 +26,7 @@ export const StyleModalBox = styled.div`
     max-width: 500px;
     box-sizing: border-box;
     border-radius: 12px;
-    
+    height: 600px;
     color: white;
 
 
@@ -34,13 +34,15 @@ export const StyleModalBox = styled.div`
 export const StyleListCart = styled.ul`
 
     
-    height: 100%;
+    height: 300px;
     list-style: none;
     padding: 5px;
     display: flex;
     flex-direction: column;
     gap: 10px;
     border-bottom: 2px solid grey;
+    flex-wrap: nowrap;
+    overflow-y: scroll;
 
     && > h1{
         color: green;

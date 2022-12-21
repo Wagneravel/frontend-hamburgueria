@@ -9,9 +9,6 @@ import { UserContext } from './UserContext';
 import { number } from 'yup';
 
 
-
-
-
 interface iItemCart {
     id: number,
     name: string,
@@ -21,8 +18,6 @@ interface iItemCart {
     qtd?: number
 
 }
-
-
 
 interface iDashBoardProviderProps {
     children: ReactNode,
@@ -45,16 +40,11 @@ interface iDashBoardContextTypes {
     setCurrentModal: React.Dispatch<React.SetStateAction<boolean>>
     contadorr: number
     setContadorr: React.Dispatch<React.SetStateAction<number>>
-    
-
-   
-
 }
 
 export const DashBoardContext = createContext({} as iDashBoardContextTypes );
 
-
-export const DashBoardProvider = ({children}: iDashBoardProviderProps) => {
+export function DashBoardProvider({children}: iDashBoardProviderProps){
     
     const navigate = useNavigate(); 
     const tokenLS = localStorage.getItem('tokenUser')
@@ -92,7 +82,6 @@ export const DashBoardProvider = ({children}: iDashBoardProviderProps) => {
         .then((response) => {
 
             const novosProdutos = response.data
-            console.log(novosProdutos)
 
             setlistaApi(novosProdutos)
             setNovaLista(novosProdutos)
@@ -121,17 +110,12 @@ export const DashBoardProvider = ({children}: iDashBoardProviderProps) => {
 
            
         }
-    
-        console.log(id)
+        
         const newProductCart = [...productCart, item]
         setProductCart(newProductCart)
+        toast.success("Contador do carrinho adicionando 1 item")
     }
 
-
-
-
-
-    
 
     function RemoveCard(id:number){
         
@@ -141,16 +125,6 @@ export const DashBoardProvider = ({children}: iDashBoardProviderProps) => {
         )
         setProductCart(arrayFiltered)
     }
-
-
-
-
-
-
-
-
-
-
 
 
     function filtrando(valor: string){
@@ -177,7 +151,7 @@ export const DashBoardProvider = ({children}: iDashBoardProviderProps) => {
         
     }
 
-    const logOut = () =>{
+    function logOut(){
         if(tokenLS){
         localStorage.clear()
         setUserLogged("")

@@ -50,14 +50,13 @@ interface iUserContextTypes{
 
 export const UserContext = createContext({} as iUserContextTypes );
 
-export const UserProvider = ({children}: iUserProviderProps) => {
+export function UserProvider({children}: iUserProviderProps){
 
     const [user, setUser] = useState({} as iUser)
-    console.log(user)
 
     const navigate = useNavigate(); 
 
-    const onSubmitFunctionLogin = (data: iDataLogin) => {
+    function onSubmitFunctionLogin(data: iDataLogin){
         
         api
         .post('/login', data)
@@ -80,7 +79,7 @@ export const UserProvider = ({children}: iUserProviderProps) => {
         
     };  
 
-    const onSubmitFunctionRegister = (data: iDataRegister) => {
+    function onSubmitFunctionRegister(data: iDataRegister){
         
         api
         .post('/users', data)

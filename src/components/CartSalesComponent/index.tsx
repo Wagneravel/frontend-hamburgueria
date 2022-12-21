@@ -1,5 +1,5 @@
-import { useContext, useState } from 'react';
-import { DashBoardContext } from '../../contexts/DashBoardContext';
+import { useContext } from 'react';
+import { DashBoardContext } from '../../contexts/CartContext';
 import { CarTotalBtnClearCart } from '../CalculeValueCart';
 import { StyleComponentModal, StyleContador, Stylehead, StyleListCart, StyleModalBox } from './style';
 
@@ -8,13 +8,7 @@ import { StyleComponentModal, StyleContador, Stylehead, StyleListCart, StyleModa
 export function ListCart(){
 
 
-    const { productCart, RemoveCard, setCurrentModal, contadorr,  setContadorr} = useContext(DashBoardContext)
-    // const [contadorr, setContadorr]=useState(1)
-
-
-    
-
-    
+    const { productCart, RemoveCard, setCurrentModal } = useContext(DashBoardContext)
 
 
     return(

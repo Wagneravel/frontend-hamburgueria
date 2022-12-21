@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { DashBoardContext } from '../../contexts/DashBoardContext';
+import { DashBoardContext } from '../../contexts/CartContext';
 import { StyleComponentModal } from './style';
 
 export function CarTotalBtnClearCart(){
@@ -10,7 +10,7 @@ export function CarTotalBtnClearCart(){
     return (
         <StyleComponentModal>
 
-            <div className='total-valor'>
+            <div>
                 <h5>Total:</h5> <h5>R${total.toFixed(2)}</h5>
                         
             </div>

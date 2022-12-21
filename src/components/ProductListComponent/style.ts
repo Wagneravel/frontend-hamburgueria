@@ -17,11 +17,7 @@ export const StyledList = styled.ul<iStyleListProps>`
     flex-wrap: wrap;
     gap: 20px;
 
-    @media (max-width: 700px){
-        flex-wrap: nowrap;
-       
-
-    }
+      
 
     && > li{
         width: 250px;

@@ -20,13 +20,13 @@ export const StyleComponentModal = styled.div`
 
 export const StyleModalBox = styled.div`
 
-    background-color: blue;
-    padding: 20px;
+    background-color: bisque;
+    
     width: 90%;
     max-width: 500px;
     box-sizing: border-box;
     border-radius: 12px;
-    border: 1px solid white;
+    
     color: white;
 
 
@@ -41,6 +41,12 @@ export const StyleListCart = styled.ul`
     flex-direction: column;
     gap: 10px;
     border-bottom: 2px solid grey;
+
+    && > h1{
+        color: green;
+        font-size: 30px;
+        text-align: center;
+    }
     
 
     li{
@@ -111,5 +117,18 @@ export const Stylehead = styled.header`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: green;
+    padding: 0 20px;
+    border-radius: 8px 8px 0 0;
+
+    && > button{
+        padding: 5px 20px;
+        border: none;
+        background-color: bisque;
+        cursor: pointer;
+        color: green;
+        border-radius: 8px;
+
+    }
 
 `

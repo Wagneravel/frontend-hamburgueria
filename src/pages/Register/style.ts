@@ -50,15 +50,14 @@ export const StyleComponentPageRegister = styled.div`
         align-items: center;
         justify-content: center;
         flex-direction: column;
+        border-radius: 8px;
+        padding: 20px;
         
         a{
-            
-            
             text-decoration: none;
             color: green;
-            font-size: larger;
+            font-size: small;
             font-weight: 600;
-            
             display: flex;
             align-items: center;
             justify-content: center;
@@ -77,8 +76,8 @@ export const StyleComponentPageRegister = styled.div`
             width: 90%;
             height: 50px;
             border-radius: 8px;
-            background-color: green;
-            color: white;
+            background-color: bisque;
+            color: green;
             border: none;
         }
 

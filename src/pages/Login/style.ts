@@ -14,7 +14,7 @@ export const StyleComponentPageLogin = styled.div`
         width: 500px;
         height: 500px;
         display: flex;
-        
+        padding: 0;
         justify-content: center;
         flex-direction: column;
 
@@ -48,6 +48,8 @@ export const StyleComponentPageLogin = styled.div`
         align-items: center;
         justify-content: center;
         flex-direction: column;
+        border-radius: 8px;
+        padding: 20px;
         
         a{
             width: 90%;

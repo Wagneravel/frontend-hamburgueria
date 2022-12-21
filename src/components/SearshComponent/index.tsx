@@ -1,5 +1,6 @@
 import { useContext } from "react"
 import { DashBoardContext } from "../../contexts/DashBoardContext"
+import { StyleComponentSearsh } from "./style"
 
 export function SearchHome(){
     
@@ -10,7 +11,7 @@ export function SearchHome(){
 
     return(
                 
-        <div>
+        <StyleComponentSearsh>
             <input placeholder="Digitar pesquisa" type={"search"}
                 
                 onChange={(e)=>{
@@ -19,8 +20,8 @@ export function SearchHome(){
             }
             } />
 
-            
-        </div>
+            <button> Pesquisar </button>
+        </StyleComponentSearsh>
         
     )
 }

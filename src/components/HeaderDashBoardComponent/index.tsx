@@ -12,11 +12,13 @@ export function HeaderHome(){
     return(
         <StyledHeaderDiv>
             <StyledHeader>
-
+                
                 <img alt='Logo' src={Logo} />
+                
+                
                 <div>
                     <SearchHome />
-                    <button onClick={()=> setCurrentModal(true)}>openCart</button>
+                    <button onClick={()=> setCurrentModal(true)}>Cart</button>
                     <button onClick={logOut}>Sair</button>
                 </div>
                
@@ -25,3 +27,7 @@ export function HeaderHome(){
         </StyledHeaderDiv>
     )
 }
+
+
+
+

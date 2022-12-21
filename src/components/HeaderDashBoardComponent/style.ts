@@ -10,7 +10,16 @@ export const StyledHeader = styled.div<iStyleHeaderProps>`
     align-items: center;
     justify-content: space-between; 
     width: 900px;
-    height: 60px;
+    min-height: 60px;
+
+    @media (max-width: 700px){
+
+        flex-direction: column;
+        margin-top: 40px;
+        width: 100%;
+        gap:20px;
+
+    }
 
     img{
         width: 190px;
@@ -19,6 +28,8 @@ export const StyledHeader = styled.div<iStyleHeaderProps>`
     div{
         display: flex;
         gap: 20px;
+
+
 
         button{
             border: none;

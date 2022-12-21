@@ -121,6 +121,8 @@ export const Stylehead = styled.header`
     padding: 0 20px;
     border-radius: 8px 8px 0 0;
 
+   
+
     && > button{
         padding: 5px 20px;
         border: none;

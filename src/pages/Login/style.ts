@@ -10,6 +10,14 @@ export const StyleComponentPageLogin = styled.div`
     width: 100vw;
     height: 100vh;
 
+    @media (max-width: 700px){
+
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+        padding: 0;
+    }
+
     section{
         width: 500px;
         height: 500px;
@@ -17,6 +25,11 @@ export const StyleComponentPageLogin = styled.div`
         padding: 0;
         justify-content: center;
         flex-direction: column;
+
+        @media (max-width: 700px){
+            width: 100%;
+
+        }
 
         img{
             max-width: 250px;
@@ -51,6 +64,11 @@ export const StyleComponentPageLogin = styled.div`
         border-radius: 8px;
         padding: 20px;
         
+        @media (max-width: 700px){
+            width: 100%;
+            
+        }
+
         a{
             width: 90%;
             height: 50px;

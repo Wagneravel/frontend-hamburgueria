@@ -10,6 +10,14 @@ export const StyleComponentPageRegister = styled.div`
     height: 100vh;
     padding: 20px;
 
+    @media (max-width: 700px){
+
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+        padding: 0;
+    }
+
 
 
     section{
@@ -19,6 +27,10 @@ export const StyleComponentPageRegister = styled.div`
         
         justify-content: center;
         flex-direction: column;
+
+        @media (max-width: 700px){
+            width: 100%;
+        }
 
         img{
             max-width: 250px;
@@ -52,6 +64,11 @@ export const StyleComponentPageRegister = styled.div`
         flex-direction: column;
         border-radius: 8px;
         padding: 20px;
+
+        @media (max-width: 700px){
+            width: 100%;
+            
+        }
         
         a{
             text-decoration: none;
